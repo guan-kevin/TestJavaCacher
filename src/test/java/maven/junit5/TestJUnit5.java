@@ -12,7 +12,7 @@ public class TestJUnit5 {
         assertEquals(m.intAddition(1, 2), 3);
     }
     
-    @Disabled @Test
+    @Test
     public void testFailureAddition() {
         Library m = new Library();
         assertEquals(m.doubleAddition(5.0, 6.0), 11.0, 0.001);
@@ -24,7 +24,7 @@ public class TestJUnit5 {
         assertEquals(m.division(1.0, 2.0), 0.5, 0.001);
     }
     
-    @Disabled @Test
+    @Test
     public void testFailureDivision() {
         Library m = new Library();
         assertEquals(m.division(1.0, 1.0), 2.0, 0.001);
@@ -36,7 +36,7 @@ public class TestJUnit5 {
         assertEquals(m.getFromArray(5), 5);
     }
     
-    @Disabled @Test
+    @Test
     public void testErrorArray() {
         Library m = new Library();
         assertEquals(m.getFromArray(12), 12);

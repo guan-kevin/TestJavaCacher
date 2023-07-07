@@ -1,27 +1,21 @@
-name: Test Build Systems
+name: Test Java Cacher
 on: [push, workflow_dispatch]
 
 jobs:
   maven-test:
-    strategy:
-      matrix:
-        system: [maven-junit5]
     name: Maven
     runs-on: ubuntu-latest
     steps:
       - name: Check Out Tester Code
         uses: actions/checkout@v3
       - name: Setup Maven Wrapper
-        working-directory: ./${{ matrix.system }}
         run: |
           ./install_maven_wrapper.sh
           ./mvnw --version
       - name: Update Test Dependencies
-        working-directory: ./${{ matrix.system }}
         run: |
           ./mvnw versions:use-latest-releases
       - name: Run Test
-        working-directory: ./${{ matrix.system }}
         run: |
           ./mvnw test
       - name: Run git test
